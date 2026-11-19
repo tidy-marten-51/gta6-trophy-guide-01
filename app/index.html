@@ -3,23 +3,114 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>GTA VI trophy checklist</title>
+<title>Leonida Trophy Guide — GTA VI · 55 trophies, roadmap &amp; tracker</title>
+<meta name="description" content="Offline guide and tracker for all 55 Grand Theft Auto VI trophies on PlayStation 5: official names, descriptions and grades, a roadmap to the platinum, the one missable trophy flagged, and a cited guide for every trophy.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23ff2e88'/%3E%3Ctext x='16' y='23' font-size='20' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'%3EL%3C/text%3E%3C/svg%3E">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
-  <h1>GTA VI trophy checklist</h1>
-  <p id="progress">0 of 55 earned</p>
+<header class="masthead">
+  <div class="masthead-inner">
+    <p class="eyebrow">Grand Theft Auto VI &middot; PlayStation 5 &middot; Leonida</p>
+    <h1>Leonida Trophy Guide</h1>
+    <p class="lede">Every one of the 55 trophies, with its official name, description and grade, a guide in our own words that cites its sources, a roadmap to the platinum, and a tracker that saves your progress in this browser. Works fully offline — no network, no account, no ads.</p>
+    <dl class="facts">
+      <div><dt>Trophies</dt><dd>55</dd></div>
+      <div><dt>Platinum</dt><dd>1</dd></div>
+      <div><dt>Gold</dt><dd>2</dd></div>
+      <div><dt>Silver</dt><dd>6</dd></div>
+      <div><dt>Bronze</dt><dd>46</dd></div>
+      <div><dt>Hidden</dt><dd>28</dd></div>
+      <div><dt>Online</dt><dd>0</dd></div>
+      <div><dt>Platinum time</dt><dd>~200 h</dd></div>
+    </dl>
+    <div class="progress" aria-label="Trophy progress">
+      <div class="progress-bar"><span id="progressFill"></span></div>
+      <p id="progressText">0 of 55 earned · 0%</p>
+    </div>
+  </div>
 </header>
-<div class="controls">
-  <label>Grade <select id="grade"><option value="all">All</option><option value="platinum">Platinum</option><option value="gold">Gold</option><option value="silver">Silver</option><option value="bronze">Bronze</option></select></label>
-  <button id="export" type="button">Export progress</button>
-  <label class="import">Import progress <input id="import" type="file" accept="application/json"></label>
+
+<nav class="tabs" aria-label="Guide sections">
+  <button type="button" data-tab="checklist" class="active" aria-current="page">Checklist</button>
+  <button type="button" data-tab="roadmap">Roadmap to Platinum</button>
+  <button type="button" data-tab="missable">Missable <span id="missableCount" class="pill">1</span></button>
+</nav>
+
+<main>
+  <section id="tab-checklist" class="tab-page">
+    <div class="controls">
+      <label class="search">Search <input id="search" type="search" placeholder="Trophy name, mission or keyword…" autocomplete="off"></label>
+      <label>Grade
+        <select id="grade">
+          <option value="all">All grades</option>
+          <option value="platinum">Platinum</option>
+          <option value="gold">Gold</option>
+          <option value="silver">Silver</option>
+          <option value="bronze">Bronze</option>
+        </select>
+      </label>
+      <label>Kind
+        <select id="kind">
+          <option value="all">All kinds</option>
+          <option value="story">Story</option>
+          <option value="activity">Activity</option>
+          <option value="collectible">Collectible</option>
+          <option value="exploration">Exploration</option>
+          <option value="combat">Combat</option>
+          <option value="misc">Misc</option>
+        </select>
+      </label>
+      <label class="check"><input id="spoilers" type="checkbox" checked> Hide story spoilers</label>
+      <label class="check"><input id="earnedOnly" type="checkbox"> Earned only</label>
+      <label class="check"><input id="hideEarned" type="checkbox"> Hide earned</label>
+      <button id="export" type="button">Export progress</button>
+      <label class="import">Import progress <input id="import" type="file" accept="application/json,.json"></label>
+      <button id="reset" type="button">Reset</button>
+    </div>
+    <p id="resultCount" class="result-count" aria-live="polite"></p>
+    <ul id="list" class="trophy-list"></ul>
+    <p class="fineprint">Names, descriptions and grades are PlayStation's, as listed by Exophase and PSNProfiles. Guides are this guide's own words; each one names its sources, and says plainly where a step was still unconfirmed at launch (19 November 2026). No Rockstar artwork is used anywhere in this guide.</p>
+  </section>
+
+  <section id="tab-roadmap" class="tab-page" hidden>
+    <h2>Roadmap to the platinum — Vice Got a Price!</h2>
+    <p>PowerPyx rates the set 4 out of 10 and about 200 hours: roughly 60–80 hours of story, about 100 hours on the 100% completion checklist, and about 10 hours of cleanup. One playthrough is enough, there are no online trophies, and there is no mission replay — so keep a manual save at the start of every chapter and one before the final mission. The stages below are built from the official descriptions: which chapters and missions, which collectibles and counts, in what order.</p>
+    <div id="roadmap"></div>
+  </section>
+
+  <section id="tab-missable" class="tab-page" hidden>
+    <h2>Missable trophies</h2>
+    <p>Only one trophy is reported as potentially missable. Everything else — including the whole 100% completion checklist — can be finished in free roam after the credits, according to PowerPyx and GTABase.</p>
+    <div id="missableList"></div>
+    <h3>Save habits that protect a run</h3>
+    <ul class="tips">
+      <li>Keep a manual save at the start of every chapter, plus one before the final mission. There is no mission replay, so a save is your only way back.</li>
+      <li>Do the Chapter 1 balcony meditation the morning after Down to Earth (see Positive Mental Attitude below) — it is the one reported missable moment.</li>
+      <li>Start stranger and side-character chains as soon as they unlock. One early guide warns their windows can be tied to story progress; PowerPyx notes that missed optional missions do not matter for trophies, since there are far more than the 8 strands Strangers &amp; Freaks needs.</li>
+      <li>Leave cheats off for the whole run: early guides report cheats disable trophy tracking and saving.</li>
+    </ul>
+    <p class="fineprint">Sources: PowerPyx — GTA 6 Trophy Guide &amp; Roadmap; EGamers — GTA 6 Trophy List; GTABase and TechWiser via EGamers.</p>
+  </section>
+</main>
+
+<div id="detail" class="detail" hidden role="dialog" aria-modal="true" aria-labelledby="detailName">
+  <div class="detail-card">
+    <button id="detailClose" type="button" aria-label="Close details">&times;</button>
+    <p id="detailBadges" class="badges"></p>
+    <h2 id="detailName"></h2>
+    <p id="detailDesc" class="official"></p>
+    <h3>Guide</h3>
+    <p id="detailGuide"></p>
+    <h3>Sources</h3>
+    <ul id="detailSources" class="sources"></ul>
+    <label class="check detail-earned"><input id="detailEarned" type="checkbox"> Earned</label>
+  </div>
 </div>
-<table>
-  <thead><tr><th>Earned</th><th>Trophy</th><th>Grade</th><th>How to get it</th></tr></thead>
-  <tbody id="rows"></tbody>
-</table>
+
+<footer>
+  <p>Leonida Trophy Guide — an unofficial fan guide. Grand Theft Auto and GTA are trademarks of Rockstar Games; this guide uses no Rockstar logo, artwork or screenshots. Trophy names, descriptions and grades are PlayStation's. Built for the make.fun GTA 6 trophy guide bounty.</p>
+</footer>
 <script type="module" src="app.js"></script>
 </body>
 </html>
